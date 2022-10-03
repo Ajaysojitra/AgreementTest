@@ -1,0 +1,46 @@
+﻿@model Agreement_Management.Models.Ad_User
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <form class="form-horizontal" asp-action="New_User">
+            <div class="form-group">
+                <div class="form-group">
+                    <label class="control-lable">First Name</label>
+                    <input asp-for="First_Name" class="form-control" type="text" />
+                </div>
+
+                <div class="form-group">
+                    <label class="control-lable">Last Name</label>
+                    <input asp-for="Last_Name" class="form-control" type="text" />
+                </div>
+
+                <div class="form-group">
+                    <label class="control-lable">User Name</label>
+                    <input asp-for="UserName" class="form-control" type="text" />
+                </div>
+
+                <div class="form-group">
+                    <label class="control-lable">Password</label>
+                    <input asp-for="Password" class="form-control" type="text" />
+                </div>
+
+                <div class="form-group">
+                    <input type="button" id="loguot" value="Logout" onclick="Redirect();" />
+                    <script type="text/javascript">
+                        Redirect = function () {
+                            HttpContext.Session.Clear();
+                            return RedirectToAction("New_User", "Home");
+
+                        }
+                    </script>
+                    <input type="button"  value="Close" />
+                </div>
+            </div>
+        </form>
+        <div class="col-sm-4"></div>
+     </div>
+</div>
